@@ -7,50 +7,51 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ConferenceManagerExampleApp.Services
 {
-    public class SubjectService : ISubjectService
+    public class SpeakerService:  ISpeakerService
     {
         private readonly ApplicationDbContext _context;
 
-        public SubjectService(ApplicationDbContext context)
+        public SpeakerService(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<List<SubjectModel>> GetAllSubjectsAsync()
+        public async Task<List<SpeakerModel>> GetAllSpeakersAsync()
         {
             return await _context
-                .Subject
-                .Include(x => x.SubjectCategoryModel)
+                .Speaker
+                .Include(x => x.SubjectModel)
                 .ToListAsync();
         }
 
-        public async Task<bool> AddSubjectAsync(SubjectModel subjectModel)
+        public async Task<bool> AddSpeakerAsync(SpeakerModel speakerModel)
         {
-            _context.Subject.Add(subjectModel);
+            _context.Speaker.Add(speakerModel);
             var saveResult = await _context.SaveChangesAsync();
             return saveResult == 1;
         }
 
-        public async Task<bool> RemoveSubjectAsync(int id)
+        public async Task<bool> RemoveSpeakerAsync(int id)
         {
-            var subject = await _context
-                .Subject
+            var speaker = await _context
+                .Speaker
                 .Where(x => x.Id == id)
                 .SingleOrDefaultAsync();
 
-            if (subject == null)
+            if (speaker == null)
             {
                 return false;
             }
 
-            _context.Subject.Remove(subject);
+            _context.Speaker.Remove(speaker);
             var deletionResult = await _context.SaveChangesAsync();
             return deletionResult == 1;
         }
 
-        public Task<SubjectModel> GetSubjectByIdAsync(int id)
+        public async Task<SpeakerModel> GetSpeakerByIdAsync(int id)
         {
-            return _context.Subject
+            return await _context
+                .Speaker
                 .Where(x => x.Id == id)
                 .SingleOrDefaultAsync();
         }

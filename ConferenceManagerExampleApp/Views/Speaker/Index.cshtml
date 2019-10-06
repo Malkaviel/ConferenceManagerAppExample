@@ -1,0 +1,46 @@
+﻿@using ConferenceManagerExampleApp.Models.Domains
+@model ConferenceManagerExampleApp.Models.ViewModels.SpeakerViewModel
+
+@{
+    ViewData["Title"] = "Manage the speakers";
+}
+
+<div class="panel panel-default room-category-panel">
+    <div class="panel-heading">@ViewData["Title"]</div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Title</th>
+            <th>Subject</th>
+            <th>Remove speaker</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var speaker in Model.SpeakerModels)
+        {
+            <tr>
+                <td>@speaker.Id</td>
+                <td>@speaker.FirstName</td>
+                <td>@speaker.LastName</td>
+                <td>@speaker.Email</td>
+                <td>@speaker.Title</td>
+                <td>@speaker.SubjectModel.Title</td>
+                <td>
+                    <form asp-area="" asp-controller="Speaker" asp-action="RemoveSpeaker" method="post">
+                        <input type="checkbox" class="remove-checkbox"/>
+                        <input type="hidden" name="id" value="@speaker.Id"/>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    
+    <div class="panel-footer add-speaker-category-form">
+        <a asp-controller="Speaker" asp-action="AddSpeaker" asp-area="">Add a speaker</a>
+    </div>
+</div>

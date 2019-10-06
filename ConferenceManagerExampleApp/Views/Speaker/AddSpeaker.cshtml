@@ -1,0 +1,26 @@
+﻿@model ConferenceManagerExampleApp.Models.BindingModels.SpeakerBindingModel
+
+<form asp-area="" asp-controller="Speaker" asp-action="AddSpeaker" method="post">
+    <label asp-for="FirstName">First Name:</label>
+    <input asp-for="FirstName"/>
+    <span asp-validation-for="FirstName" class="text-danger"></span>
+    
+    <label asp-for="LastName">Last Name:</label>
+    <input asp-for="LastName"/>
+    <span asp-validation-for="LastName" class="text-danger"></span>
+    
+    <label asp-for="Email">Email:</label>
+    <input asp-for="Email" type="email"/>
+    <span asp-validation-for="Email" class="text-danger"></span>
+    
+    <label asp-for="Title">Title:</label>
+    <input asp-for="Title"/>
+    <span asp-validation-for="Title" class="text-danger"></span>
+    
+    <label asp-for="SubjectId">Subject</label>
+    <select asp-for="SubjectId" asp-items="@Model.SubjectTitles">
+        <option selected="selected" value="">Please select</option>
+    </select>
+    <span asp-validation-for="SubjectId" class="text-danger"></span>
+    <button type="submit">Add</button>
+</form>

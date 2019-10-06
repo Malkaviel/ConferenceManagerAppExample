@@ -9,5 +9,6 @@ namespace ConferenceManagerExampleApp.Services
         Task<List<SubjectModel>> GetAllSubjectsAsync();
         Task<bool> AddSubjectAsync(SubjectModel subjectModel);
         Task<bool> RemoveSubjectAsync(int id);
+        Task<SubjectModel> GetSubjectByIdAsync(int id);
     }
 }
