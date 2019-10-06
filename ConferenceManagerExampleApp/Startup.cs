@@ -40,6 +40,7 @@ namespace ConferenceManagerExampleApp
             // Custom services
             services.AddScoped<IRoomCategoryService, RoomCategoryService>();
             services.AddScoped<IRoomService, RoomService>();
+            services.AddScoped<ISubjectCategoryService, SubjectCategoryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
