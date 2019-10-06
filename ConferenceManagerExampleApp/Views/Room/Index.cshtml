@@ -1,0 +1,40 @@
+﻿@using ConferenceManagerExampleApp.Models.Domains
+@model ConferenceManagerExampleApp.Models.ViewModels.RoomViewModel
+
+@{
+    ViewData["Title"] = "Manage the rooms";
+}
+
+<div class="panel panel-default room-category-panel">
+    <div class="panel-heading">@ViewData["Title"]</div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Remove room</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var room in Model.RoomModels)
+        {
+            <tr>
+                <td>@room.Id</td>
+                <td>@room.Name</td>
+                <td>@room.RoomCategoryModel.Description</td>
+                <td>
+                    <form asp-area="" asp-controller="Room" asp-action="RemoveRoom" method="post">
+                        <input type="checkbox" class="remove-checkbox"/>
+                        <input type="hidden" name="id" value="@room.Id"/>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    
+    <div class="panel-footer add-room-category-form">
+        <a asp-controller="Room" asp-action="AddRoom" asp-area="">Add a room</a>
+    </div>
+</div>

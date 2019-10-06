@@ -18,8 +18,4 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Models\BindingModels" />
-    </ItemGroup>
-
 </Project>

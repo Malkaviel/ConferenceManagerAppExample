@@ -3,14 +3,16 @@ using System;
 using ConferenceManagerExampleApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ConferenceManagerExampleApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191006132931_AddRoomCategory")]
+    partial class AddRoomCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,41 +34,6 @@ namespace ConferenceManagerExampleApp.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RoomCategory");
-                });
-
-            modelBuilder.Entity("ConferenceManagerExampleApp.Models.Domains.RoomModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("RoomCategoryModelId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoomCategoryModelId");
-
-                    b.ToTable("Room");
-                });
-
-            modelBuilder.Entity("ConferenceManagerExampleApp.Models.Domains.SubjectCategoryModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SubjectCategory");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -263,15 +230,6 @@ namespace ConferenceManagerExampleApp.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("ConferenceManagerExampleApp.Models.Domains.RoomModel", b =>
-                {
-                    b.HasOne("ConferenceManagerExampleApp.Models.Domains.RoomCategoryModel", "RoomCategoryModel")
-                        .WithMany()
-                        .HasForeignKey("RoomCategoryModelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

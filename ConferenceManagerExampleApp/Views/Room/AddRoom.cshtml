@@ -1,0 +1,14 @@
+﻿@model ConferenceManagerExampleApp.Models.BindingModels.RoomBindingModel
+
+<form asp-area="" asp-controller="Room" asp-action="AddRoom" method="post">
+    <label asp-for="Name">Name:</label>
+    <input asp-for="Name"/>
+    <span asp-validation-for="Name" class="text-danger"></span>
+    
+    <label asp-for="RoomCategoryId">Description</label>
+    <select asp-for="RoomCategoryId" asp-items="@Model.RoomCategoryDescription">
+        <option selected="selected" value="">Please select</option>
+    </select>
+    <span asp-validation-for="RoomCategoryId" class="text-danger"></span>
+    <button type="submit">Add</button>
+</form>

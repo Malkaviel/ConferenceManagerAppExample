@@ -3,8 +3,8 @@ using ConferenceManagerExampleApp.Models.Domains;
 
 namespace ConferenceManagerExampleApp.Models.ViewModels
 {
-    public class RoomCategoryViewModel
+    public class SubjectCategoryViewModel
     {
-        public List<RoomCategoryModel> RoomCategories { get; set; }
+        public List<SubjectCategoryModel> SubjectCategoryModels { get; set; }
     }
 }

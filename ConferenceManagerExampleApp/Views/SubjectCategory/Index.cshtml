@@ -1,9 +1,7 @@
-﻿@using ConferenceManagerExampleApp.Models.BindingModels
-@using ConferenceManagerExampleApp.Models.Domains
-@model ConferenceManagerExampleApp.Models.ViewModels.RoomCategoryViewModel
+﻿@model ConferenceManagerExampleApp.Models.ViewModels.SubjectCategoryViewModel
 
 @{
-    ViewData["Title"] = "Manage the room categories";
+    ViewData["Title"] = "Manage the subject categories";
 }
 
 <div class="panel panel-default room-category-panel">
@@ -13,19 +11,17 @@
         <tr>
             <th>Id</th>
             <th>Description</th>
-            <th>Max capacity</th>
             <th>Remove room category</th>
         </tr>
         </thead>
         <tbody>
-        @foreach (var category in Model.RoomCategories)
+        @foreach (var category in Model.SubjectCategoryModels)
         {
             <tr>
                 <td>@category.Id</td>
                 <td>@category.Description</td>
-                <td>@category.MaxCapacity</td>
                 <td>
-                    <form asp-area="" asp-controller="RoomCategory" asp-action="RemoveRoomCategory" method="post">
+                    <form asp-area="" asp-controller="SubjectCategory" asp-action="RemoveSubjectCategory" method="post">
                         <input type="checkbox" class="remove-checkbox"/>
                         <input type="hidden" name="id" value="@category.Id"/>
                     </form>
@@ -36,6 +32,6 @@
     </table>
     
     <div class="panel-footer add-room-category-form">
-       <a asp-controller="RoomCategory" asp-action="AddRoomCategory">Add room category</a>
+        <a asp-controller="SubjectCategory" asp-action="AddSubjectCategory">Add subject category</a>
     </div>
 </div>
