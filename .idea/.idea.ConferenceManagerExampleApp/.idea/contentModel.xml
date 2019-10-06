@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Malkaviel\.Rider2019.2\system\extResources" t="IncludeRecursive" />
@@ -19,6 +19,7 @@
         <e p="ConferenceManagerExampleApp.csproj" t="IncludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="HomeController.cs" t="Include" />
+          <e p="RoomCategoryController.cs" t="Include" />
         </e>
         <e p="Data" t="Include">
           <e p="ApplicationDbContext.cs" t="Include" />
@@ -29,7 +30,14 @@
           </e>
         </e>
         <e p="Models" t="Include">
+          <e p="BindingModels" t="Include" />
+          <e p="Domains" t="Include">
+            <e p="RoomCategoryModel.cs" t="Include" />
+          </e>
           <e p="ErrorViewModel.cs" t="Include" />
+          <e p="ViewModels" t="Include">
+            <e p="RoomCategoryViewModel.cs" t="Include" />
+          </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -42,13 +50,19 @@
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
+        <e p="Services" t="Include">
+          <e p="IRoomCategoryService.cs" t="Include" />
+          <e p="RoomCategoryService.cs" t="Include" />
+        </e>
         <e p="Startup.cs" t="Include" />
         <e p="Views" t="Include">
           <e p="_ViewImports.cshtml" t="Include" />
           <e p="_ViewStart.cshtml" t="Include" />
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
-            <e p="Privacy.cshtml" t="Include" />
+          </e>
+          <e p="RoomCategory" t="Include">
+            <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
