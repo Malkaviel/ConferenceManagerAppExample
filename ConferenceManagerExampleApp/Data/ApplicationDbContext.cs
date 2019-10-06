@@ -12,6 +12,7 @@ namespace ConferenceManagerExampleApp.Data
         public DbSet<RoomCategoryModel> RoomCategory { get; set; }
         public DbSet<RoomModel> Room { get; set; }
         public DbSet<SubjectCategoryModel> SubjectCategory { get; set; }
+        public DbSet<SubjectModel> Subject { get; set; }
         
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

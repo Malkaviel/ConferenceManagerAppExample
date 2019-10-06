@@ -1,0 +1,14 @@
+﻿@model ConferenceManagerExampleApp.Models.BindingModels.SubjectBindingModel
+
+<form asp-area="" asp-controller="Subject" asp-action="AddSubject" method="post">
+    <label asp-for="Title">Title:</label>
+    <input asp-for="Title"/>
+    <span asp-validation-for="Title" class="text-danger"></span>
+    
+    <label asp-for="SubjectCategoryId">Category</label>
+    <select asp-for="SubjectCategoryId" asp-items="@Model.SubjectCategoryDescription">
+        <option selected="selected" value="">Please select</option>
+    </select>
+    <span asp-validation-for="SubjectCategoryId" class="text-danger"></span>
+    <button type="submit">Add</button>
+</form>

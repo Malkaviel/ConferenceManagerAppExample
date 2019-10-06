@@ -83,7 +83,7 @@ namespace ConferenceManagerExampleApp.Controllers
                 return BadRequest("Could not find the room category");
             }
             
-            var roomModel = new RoomModel()
+            var roomModel = new RoomModel
             {
                 Name = roomBindingModel.Name,
                 RoomCategoryModel = roomCategoryModel
@@ -98,6 +98,7 @@ namespace ConferenceManagerExampleApp.Controllers
         }
 
         [ValidateAntiForgeryToken]
+        [HttpPost]
         public async Task<IActionResult> RemoveRoom(int id)
         {
             if (id == 0)

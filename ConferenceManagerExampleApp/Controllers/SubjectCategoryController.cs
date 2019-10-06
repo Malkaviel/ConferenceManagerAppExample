@@ -39,7 +39,7 @@ namespace ConferenceManagerExampleApp.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> AddSubjectCategory()
+        public IActionResult AddSubjectCategory()
         {
             var bindingModel = new SubjectCategoryBindingModel();
             return View(bindingModel);
