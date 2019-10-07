@@ -5,25 +5,28 @@
     ViewData["Title"] = "Manage the speakers";
 }
 
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+</div>
+
 <div class="panel panel-default room-category-panel">
-    <div class="panel-heading">@ViewData["Title"]</div>
     <table class="table table-hover">
-        <thead>
+        <thead class="thead-dark">
         <tr>
-            <th>Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Title</th>
-            <th>Subject</th>
-            <th>Remove speaker</th>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Title</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Remove speaker</th>
         </tr>
         </thead>
         <tbody>
         @foreach (var speaker in Model.SpeakerModels)
         {
             <tr>
-                <td>@speaker.Id</td>
+                <th scope="row">@speaker.Id</th>
                 <td>@speaker.FirstName</td>
                 <td>@speaker.LastName</td>
                 <td>@speaker.Email</td>
@@ -41,6 +44,6 @@
     </table>
     
     <div class="panel-footer add-speaker-category-form">
-        <a asp-controller="Speaker" asp-action="AddSpeaker" asp-area="">Add a speaker</a>
+        <button type="button" class="btn btn-primary"><a class="text-white" asp-controller="Speaker" asp-action="AddSpeaker" asp-area="">Add a speaker</a></button>
     </div>
 </div>

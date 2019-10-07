@@ -5,22 +5,25 @@
     ViewData["Title"] = "Manage the rooms";
 }
 
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+</div>
+
 <div class="panel panel-default room-category-panel">
-    <div class="panel-heading">@ViewData["Title"]</div>
     <table class="table table-hover">
-        <thead>
+        <thead class="thead-dark">
         <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Remove room</th>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Remove room</th>
         </tr>
         </thead>
         <tbody>
         @foreach (var room in Model.RoomModels)
         {
             <tr>
-                <td>@room.Id</td>
+                <th scope="row">@room.Id</th>
                 <td>@room.Name</td>
                 <td>@room.RoomCategoryModel.Description</td>
                 <td>
@@ -35,6 +38,6 @@
     </table>
     
     <div class="panel-footer add-room-category-form">
-        <a asp-controller="Room" asp-action="AddRoom" asp-area="">Add a room</a>
+        <button type="button" class="btn btn-primary"><a class="text-white" asp-controller="Room" asp-action="AddRoom" asp-area="">Add a room</a></button>
     </div>
 </div>

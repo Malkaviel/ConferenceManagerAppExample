@@ -5,25 +5,28 @@
     ViewData["Title"] = "Manage your time slots";
 }
 
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+</div>
+
 <div class="panel panel-default room-category-panel">
-    <div class="panel-heading">@ViewData["Title"]</div>
     <table class="table table-hover">
-        <thead>
+        <thead class="thead-dark">
         <tr>
-            <th>Start</th>
-            <th>End</th>
-            <th>Room</th>
-            <th>Session</th>
-            <th>Speaker</th>
-            <th>Remove time slot</th>
+            <th scope="col">Start</th>
+            <th scope="col">End</th>
+            <th scope="col">Room</th>
+            <th scope="col">Session</th>
+            <th scope="col">Speaker</th>
+            <th scope="col">Remove time slot</th>
         </tr>
         </thead>
         <tbody>
         @foreach (var timeSlot in Model.UserTimeSlotModels)
         {
             <tr>
-                <td>@timeSlot.TimeSlotModel.StartTime.ToString("G")</td>
-                <td>@timeSlot.TimeSlotModel.EndTime.ToString("G")</td>
+                <th scope="row">@timeSlot.TimeSlotModel.StartTime.ToString("G")</th>
+                <th scope="row">@timeSlot.TimeSlotModel.EndTime.ToString("G")</th>
                 <td>@timeSlot.TimeSlotModel.RoomModel.Name</td>
                 <td>@timeSlot.TimeSlotModel.SessionModel.Title</td>
                 <td>@timeSlot.TimeSlotModel.SessionModel.SpeakerModel.FirstName @timeSlot.TimeSlotModel.SessionModel.SpeakerModel.LastName</td>
@@ -39,6 +42,6 @@
     </table>
     
     <div class="panel-footer add-subject-category-form">
-        <a asp-controller="User" asp-action="AddUserTimeSlot" asp-area="">Add a time slot</a>
+        <button type="button" class="btn btn-primary"><a class="text-white" asp-controller="User" asp-action="AddUserTimeSlot" asp-area="">Add a time slot</a></button>
     </div>
 </div>
