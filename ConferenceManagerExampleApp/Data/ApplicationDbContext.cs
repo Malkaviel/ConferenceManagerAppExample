@@ -17,6 +17,7 @@ namespace ConferenceManagerExampleApp.Data
         public DbSet<SessionModel> Session { get; set; }
         
         public DbSet<TimeSlotModel> TimeSlot { get; set; }
+        public DbSet<UserTimeSlotModel> UserTimeSlot { get; set; }
         
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -26,6 +27,7 @@ namespace ConferenceManagerExampleApp.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            
             builder.Entity<TimeSlotModel>()
                 .HasKey(x => new {x.StartTime, x.EndTime});
         }

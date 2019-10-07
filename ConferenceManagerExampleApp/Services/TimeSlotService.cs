@@ -21,6 +21,7 @@ namespace ConferenceManagerExampleApp.Services
         {
             return await _context.TimeSlot
                 .Include(x => x.SessionModel)
+                .ThenInclude(x => x.SpeakerModel)
                 .Include(x => x.RoomModel)
                 .ToListAsync();
         }

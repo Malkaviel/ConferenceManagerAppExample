@@ -1,0 +1,44 @@
+@using ConferenceManagerExampleApp.Models.Domains
+@model ConferenceManagerExampleApp.Models.ViewModels.UserTimeSlotViewModel
+
+@{
+    ViewData["Title"] = "Manage your time slots";
+}
+
+<div class="panel panel-default room-category-panel">
+    <div class="panel-heading">@ViewData["Title"]</div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Start</th>
+            <th>End</th>
+            <th>Room</th>
+            <th>Session</th>
+            <th>Speaker</th>
+            <th>Remove time slot</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var timeSlot in Model.UserTimeSlotModels)
+        {
+            <tr>
+                <td>@timeSlot.TimeSlotModel.StartTime.ToString("G")</td>
+                <td>@timeSlot.TimeSlotModel.EndTime.ToString("G")</td>
+                <td>@timeSlot.TimeSlotModel.RoomModel.Name</td>
+                <td>@timeSlot.TimeSlotModel.SessionModel.Title</td>
+                <td>@timeSlot.TimeSlotModel.SessionModel.SpeakerModel.FirstName @timeSlot.TimeSlotModel.SessionModel.SpeakerModel.LastName</td>
+                <td>
+                    <form asp-area="" asp-controller="User" asp-action="RemoveUserTimeSlot" method="post">
+                        <input type="checkbox" class="remove-checkbox"/>
+                        <input type="hidden" name="id" value="@timeSlot.Id"/>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    
+    <div class="panel-footer add-subject-category-form">
+        <a asp-controller="User" asp-action="AddUserTimeSlot" asp-area="">Add a time slot</a>
+    </div>
+</div>

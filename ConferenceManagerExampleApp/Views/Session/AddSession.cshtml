@@ -1,14 +1,18 @@
 ﻿@model ConferenceManagerExampleApp.Models.BindingModels.SessionBindingModel
 
 <form asp-area="" asp-controller="Session" asp-action="AddSession" method="post">
-    <label asp-for="Title">Title:</label>
-    <input asp-for="Title"/>
-    <span asp-validation-for="Title" class="text-danger"></span>
+    <div class="form-group">
+         <label asp-for="Title">Title:</label>
+        <input class="form-control" asp-for="Title"/>
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SpeakerId">Speaker</label>
+        <select class="form-group" asp-for="SpeakerId" asp-items="@Model.SpeakerNames">
+            <option selected="selected" value="">Please select</option>
+        </select>
+        <span asp-validation-for="SpeakerId" class="text-danger"></span>
+    </div>
     
-    <label asp-for="SpeakerId">Speaker</label>
-    <select asp-for="SpeakerId" asp-items="@Model.SpeakerNames">
-        <option selected="selected" value="">Please select</option>
-    </select>
-    <span asp-validation-for="SpeakerId" class="text-danger"></span>
-    <button type="submit">Add</button>
+    <button type="submit" class="btn btn-primary">Add</button>
 </form>

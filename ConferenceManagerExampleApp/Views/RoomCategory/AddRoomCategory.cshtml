@@ -1,9 +1,16 @@
 ﻿@model ConferenceManagerExampleApp.Models.BindingModels.RoomCategoryBindingModel
 
 <form asp-area="" asp-controller="RoomCategory" asp-action="AddRoomCategory" method="post">
-    <label asp-for="Description">Description:</label>
-    <input asp-for="Description"/>
-    <label asp-for="MaxCapacity">Max capacity:</label>
-    <input asp-for="MaxCapacity"/>
-    <button type="submit">Add</button>
+    <div class="form-group">
+        <label asp-for="Description">Description</label>
+        <input class="form-control" asp-for="Description"/>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaxCapacity">Max capacity:</label>
+        <input class="form-control" asp-for="MaxCapacity"/>
+        <span asp-validation-for="MaxCapacity" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Add</button>
 </form>

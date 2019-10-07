@@ -1,7 +1,11 @@
 ﻿@model ConferenceManagerExampleApp.Models.BindingModels.SubjectCategoryBindingModel
 
 <form asp-area="" asp-controller="SubjectCategory" asp-action="AddSubjectCategory" method="post">
-    <label asp-for="Description">Description:</label>
-    <input asp-for="Description"/>
-    <button type="submit">Add</button>
+    <div class="form-group">
+        <label asp-for="Description">Description:</label>
+        <input class="form-control" asp-for="Description"/>
+        <span asp-validation-for="Description"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Add</button>
 </form>

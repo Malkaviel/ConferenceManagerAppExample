@@ -1,0 +1,13 @@
+﻿@model ConferenceManagerExampleApp.Models.BindingModels.UserTimeSlotBindingModel
+
+<form asp-area="" asp-controller="User" asp-action="AddUserTimeSlot" method="post">
+    <div class="form-group">
+        <label asp-for="TimeSlotDescription">Time slot:</label>
+        <select class="form-control" asp-for="TimeSlotDescription" asp-items="@Model.TimeSlots">
+            <option selected="selected">Please select</option>
+        </select>
+        <span asp-validation-for="TimeSlotDescription" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
