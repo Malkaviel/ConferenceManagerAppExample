@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\Malkaviel\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\Malkaviel\.Rider2019.2\config\extensions" t="IncludeRecursive" />
     <e p="C:\Users\Malkaviel\.Rider2019.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Malkaviel\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_ConferenceManagerExampleApp.2106629081.00" t="ExcludeRecursive" />
     <e p="C:\Users\Malkaviel\RiderProjects\ConferenceManagerExampleApp" t="IncludeFlat">
@@ -17,26 +19,73 @@
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="ConferenceManagerExampleApp.csproj" t="IncludeRecursive" />
+        <e p="Constants.cs" t="Include" />
         <e p="Controllers" t="Include">
           <e p="HomeController.cs" t="Include" />
           <e p="RoomCategoryController.cs" t="Include" />
+          <e p="RoomController.cs" t="Include" />
+          <e p="SessionController.cs" t="Include" />
+          <e p="SpeakerController.cs" t="Include" />
+          <e p="SubjectCategoryController.cs" t="Include" />
+          <e p="SubjectController.cs" t="Include" />
+          <e p="TimeSlotController.cs" t="Include" />
+          <e p="UserController.cs" t="Include" />
         </e>
         <e p="Data" t="Include">
           <e p="ApplicationDbContext.cs" t="Include" />
           <e p="Migrations" t="Include">
             <e p="00000000000000_CreateIdentitySchema.cs" t="Include" />
             <e p="00000000000000_CreateIdentitySchema.Designer.cs" t="Include" />
+            <e p="20191006132931_AddRoomCategory.cs" t="Include" />
+            <e p="20191006132931_AddRoomCategory.Designer.cs" t="Include" />
+            <e p="20191006162518_AddRoom.cs" t="Include" />
+            <e p="20191006162518_AddRoom.Designer.cs" t="Include" />
+            <e p="20191006200144_AddSubjectCategory.cs" t="Include" />
+            <e p="20191006200144_AddSubjectCategory.Designer.cs" t="Include" />
+            <e p="20191006204942_AddSubjects.cs" t="Include" />
+            <e p="20191006204942_AddSubjects.Designer.cs" t="Include" />
+            <e p="20191006214136_AddSpeaker.cs" t="Include" />
+            <e p="20191006214136_AddSpeaker.Designer.cs" t="Include" />
+            <e p="20191006222413_AddSession.cs" t="Include" />
+            <e p="20191006222413_AddSession.Designer.cs" t="Include" />
+            <e p="20191006235553_AddTimeSlot.cs" t="Include" />
+            <e p="20191006235553_AddTimeSlot.Designer.cs" t="Include" />
+            <e p="20191007020228_AddUserTimeSlot.cs" t="Include" />
+            <e p="20191007020228_AddUserTimeSlot.Designer.cs" t="Include" />
             <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
           </e>
         </e>
         <e p="Models" t="Include">
-          <e p="BindingModels" t="Include" />
+          <e p="BindingModels" t="Include">
+            <e p="RoomBindingModel.cs" t="Include" />
+            <e p="RoomCategoryBindingModel.cs" t="Include" />
+            <e p="SessionBindingModel.cs" t="Include" />
+            <e p="SpeakerBindingModel.cs" t="Include" />
+            <e p="SubjectBindingModel.cs" t="Include" />
+            <e p="SubjectCategoryBindingModel.cs" t="Include" />
+            <e p="TimeSlotBindingModel.cs" t="Include" />
+            <e p="UserTimeSlotBindingModel.cs" t="Include" />
+          </e>
           <e p="Domains" t="Include">
             <e p="RoomCategoryModel.cs" t="Include" />
+            <e p="RoomModel.cs" t="Include" />
+            <e p="SessionModel.cs" t="Include" />
+            <e p="SpeakerModel.cs" t="Include" />
+            <e p="SubjectCategoryModel.cs" t="Include" />
+            <e p="SubjectModel.cs" t="Include" />
+            <e p="TimeSlotModel.cs" t="Include" />
+            <e p="UserTimeSlotModel.cs" t="Include" />
           </e>
           <e p="ErrorViewModel.cs" t="Include" />
           <e p="ViewModels" t="Include">
             <e p="RoomCategoryViewModel.cs" t="Include" />
+            <e p="RoomViewModel.cs" t="Include" />
+            <e p="SessionViewModel.cs" t="Include" />
+            <e p="SpeakerViewModel.cs" t="Include" />
+            <e p="SubjectCategoryViewModel.cs" t="Include" />
+            <e p="SubjectViewModel.cs" t="Include" />
+            <e p="TimeSlotViewModel.cs" t="Include" />
+            <e p="UserTimeSlotViewModel.cs" t="Include" />
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -50,9 +99,24 @@
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
+        <e p="SeedDb.cs" t="Include" />
         <e p="Services" t="Include">
           <e p="IRoomCategoryService.cs" t="Include" />
+          <e p="IRoomService.cs" t="Include" />
+          <e p="ISessionService.cs" t="Include" />
+          <e p="ISpeakerService.cs" t="Include" />
+          <e p="ISubjectCategoryService.cs" t="Include" />
+          <e p="ISubjectService.cs" t="Include" />
+          <e p="ITimeSlotService.cs" t="Include" />
+          <e p="IUserTimeSlotService.cs" t="Include" />
           <e p="RoomCategoryService.cs" t="Include" />
+          <e p="RoomService.cs" t="Include" />
+          <e p="SessionService.cs" t="Include" />
+          <e p="SpeakerService.cs" t="Include" />
+          <e p="SubjectCategoryService.cs" t="Include" />
+          <e p="SubjectService.cs" t="Include" />
+          <e p="TimeSlotService.cs" t="Include" />
+          <e p="UserTimeSlotService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="Views" t="Include">
@@ -61,14 +125,45 @@
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
           </e>
+          <e p="Room" t="Include">
+            <e p="AddRoom.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+          </e>
           <e p="RoomCategory" t="Include">
+            <e p="AddRoomCategory.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Session" t="Include">
+            <e p="AddSession.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
+            <e p="_AdminActionsPartial.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
             <e p="_LoginPartial.cshtml" t="Include" />
+            <e p="_UserActionsPartial.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
             <e p="Error.cshtml" t="Include" />
+          </e>
+          <e p="Speaker" t="Include">
+            <e p="AddSpeaker.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Subject" t="Include">
+            <e p="AddSubject.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="SubjectCategory" t="Include">
+            <e p="AddSubjectCategory.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="TimeSlot" t="Include">
+            <e p="AddTimeSlot.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="User" t="Include">
+            <e p="AddUserTimeSlot.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
           </e>
         </e>
         <e p="wwwroot" t="Include">

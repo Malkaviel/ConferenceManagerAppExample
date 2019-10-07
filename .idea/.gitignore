@@ -1,3 +1,6 @@
 ﻿
 # Default ignored files
 /.idea.ConferenceManagerExampleApp/.idea/workspace.xml
+# Datasource local storage ignored files
+/.idea.ConferenceManagerExampleApp/.idea/dataSources/
+/.idea.ConferenceManagerExampleApp/.idea/dataSources.local.xml
