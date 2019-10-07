@@ -9,5 +9,7 @@ namespace ConferenceManagerExampleApp.Services
         Task<List<RoomModel>> GetAllRoomsAsync();
         Task<bool> AddRoomAsync(RoomModel roomModel);
         Task<bool> RemoveRoomAsync(int id);
+
+        Task<RoomModel> GetRoomByIdAsync(int id);
     }
 }

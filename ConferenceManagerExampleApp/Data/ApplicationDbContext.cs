@@ -14,10 +14,20 @@ namespace ConferenceManagerExampleApp.Data
         public DbSet<SubjectCategoryModel> SubjectCategory { get; set; }
         public DbSet<SubjectModel> Subject { get; set; }
         public DbSet<SpeakerModel> Speaker { get; set; }
+        public DbSet<SessionModel> Session { get; set; }
+        
+        public DbSet<TimeSlotModel> TimeSlot { get; set; }
         
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<TimeSlotModel>()
+                .HasKey(x => new {x.StartTime, x.EndTime});
         }
     }
 }

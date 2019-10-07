@@ -3,14 +3,16 @@ using System;
 using ConferenceManagerExampleApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ConferenceManagerExampleApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191006222413_AddSession")]
+    partial class AddSession
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,29 +141,6 @@ namespace ConferenceManagerExampleApp.Data.Migrations
                     b.HasIndex("SubjectCategoryModelId");
 
                     b.ToTable("Subject");
-                });
-
-            modelBuilder.Entity("ConferenceManagerExampleApp.Models.Domains.TimeSlotModel", b =>
-                {
-                    b.Property<DateTime>("StartTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("EndTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("RoomModelId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("SessionModelId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("StartTime", "EndTime");
-
-                    b.HasIndex("RoomModelId");
-
-                    b.HasIndex("SessionModelId");
-
-                    b.ToTable("TimeSlot");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -392,21 +371,6 @@ namespace ConferenceManagerExampleApp.Data.Migrations
                     b.HasOne("ConferenceManagerExampleApp.Models.Domains.SubjectCategoryModel", "SubjectCategoryModel")
                         .WithMany()
                         .HasForeignKey("SubjectCategoryModelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ConferenceManagerExampleApp.Models.Domains.TimeSlotModel", b =>
-                {
-                    b.HasOne("ConferenceManagerExampleApp.Models.Domains.RoomModel", "RoomModel")
-                        .WithMany()
-                        .HasForeignKey("RoomModelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ConferenceManagerExampleApp.Models.Domains.SessionModel", "SessionModel")
-                        .WithMany()
-                        .HasForeignKey("SessionModelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

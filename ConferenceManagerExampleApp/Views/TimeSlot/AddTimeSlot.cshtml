@@ -1,0 +1,29 @@
+﻿@model ConferenceManagerExampleApp.Models.BindingModels.TimeSlotBindingModel
+
+<form asp-area="" asp-controller="TimeSlot" asp-action="AddTimeSlot" method="post">
+    <label asp-for="StartTime">Start:</label>
+    <select asp-for="StartTime" asp-items="@Model.TimeSlots">
+        <option selected="selected">Please select</option>
+    </select>
+    <span asp-validation-for="StartTime" class="text-danger"></span>
+    
+    <label asp-for="EndTime">End:</label>
+        <select asp-for="EndTime" asp-items="@Model.TimeSlots">
+            <option selected="selected">Please select</option>
+        </select>
+    <span asp-validation-for="EndTime" class="text-danger"></span>
+    
+    <label asp-for="RoomId">Room:</label>
+        <select asp-for="RoomId" asp-items="@Model.RoomNames">
+            <option selected="selected">Please select</option>
+        </select>
+    <span asp-validation-for="RoomId" class="text-danger"></span>
+    
+    <label asp-for="SessionId">Session:</label>
+        <select asp-for="SessionId" asp-items="@Model.SessionTitles">
+            <option selected="selected">Please select</option>
+        </select>
+        <span asp-validation-for="SessionId" class="text-danger"></span>
+    
+    <button type="submit">Add</button>
+</form>

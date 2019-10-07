@@ -1,0 +1,43 @@
+﻿@using ConferenceManagerExampleApp.Models.Domains
+@model ConferenceManagerExampleApp.Models.ViewModels.TimeSlotViewModel
+
+@{
+    ViewData["Title"] = "Manage the time slots";
+}
+
+<div class="panel panel-default room-category-panel">
+    <div class="panel-heading">@ViewData["Title"]</div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Start</th>
+            <th>End</th>
+            <th>Room</th>
+            <th>Session</th>
+            <th>Remove time slot</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var timeSlot in Model.TimeSlotModels)
+        {
+            <tr>
+                <td>@timeSlot.StartTime.ToString("G")</td>
+                <td>@timeSlot.EndTime.ToString("G")</td>
+                <td>@timeSlot.RoomModel.Name</td>
+                <td>@timeSlot.SessionModel.Title</td>
+                <td>
+                    <form asp-area="" asp-controller="TimeSlot" asp-action="RemoveTimeSlot" method="post">
+                        <input type="checkbox" class="remove-checkbox"/>
+                        <input type="hidden" name="startTime" value="@timeSlot.StartTime"/>
+                        <input type="hidden" name="endTime" value="@timeSlot.EndTime"/>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    
+    <div class="panel-footer add-subject-category-form">
+        <a asp-controller="TimeSlot" asp-action="AddTimeSlot" asp-area="">Add a time slot</a>
+    </div>
+</div>

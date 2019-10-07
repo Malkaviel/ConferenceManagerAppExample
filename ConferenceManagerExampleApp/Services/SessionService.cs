@@ -7,48 +7,48 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ConferenceManagerExampleApp.Services
 {
-    public class RoomService : IRoomService
+    public class SessionService : ISessionService
     {
         private readonly ApplicationDbContext _context;
 
-        public RoomService(ApplicationDbContext context)
+        public SessionService(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<List<RoomModel>> GetAllRoomsAsync()
+        public async Task<List<SessionModel>> GetAllSessionsAsync()
         {
-            return await _context.Room.Include(room => room.RoomCategoryModel).ToListAsync();
+            return await _context.Session.Include(x => x.SpeakerModel).ToListAsync();
         }
 
-        public async Task<bool> AddRoomAsync(RoomModel roomModel)
+        public async Task<bool> AddSessionAsync(SessionModel sessionModel)
         {
-            _context.Room.Add(roomModel);
+            _context.Session.Add(sessionModel);
             var saveResult = await _context.SaveChangesAsync();
             return saveResult == 1;
         }
 
-        public async Task<bool> RemoveRoomAsync(int id)
+        public async Task<bool> RemoveSessionAsync(int id)
         {
-            var room = await _context
-                .Room
-                .Where(ro => ro.Id == id)
+            var session = await _context
+                .Session
+                .Where(x => x.Id == id)
                 .SingleOrDefaultAsync();
 
-            if (room == null)
+            if (session == null)
             {
                 return false;
             }
 
-            _context.Room.Remove(room);
+            _context.Session.Remove(session);
             var deletionResult = await _context.SaveChangesAsync();
             return deletionResult == 1;
         }
 
-        public async Task<RoomModel> GetRoomByIdAsync(int id)
+        public async Task<SessionModel> GetSessionByIdAsync(int id)
         {
             return await _context
-                .Room
+                .Session
                 .Where(x => x.Id == id)
                 .SingleOrDefaultAsync();
         }
